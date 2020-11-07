@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head lang='ru'>
+
+</head>
+<body>
+    <h1></h1>
+    <p>Вы также должны знать, что браузеры выделяют 5мб под localStorage. И если вы его превысите — получите исключение QUOTA_EXCEEDED_ERR. Кстати, c его помощью можно проверять есть ли в вашем хранилище еще место.
+
+    </p>
+    <script>
+// add
+        localStorage.setItem('newKey', 'newValue');
+// get
+        let loc = localStorage.getItem('newKey');
+
+        document.querySelector('h1').innerText = loc;
+// remove
+
+        localStorage.removeItem('newKey');
+        loc = localStorage.getItem('newKey');
+        console.log(loc) // null
+
+// квадратные скобки
+        localStorage['anotherKey'] = 'anotherValue';
+        console.log(localStorage['anotherKey']) //anotherValue
+        delete localStorage['anotherKey'];
+        console.log(localStorage['anotherKey']) //undefined 
+
+// объект
+
+        const obj = {
+            a: 2,
+            b: 'meme',
+            c: [1, 5, 6]
+        };
+
+        let serialObj = JSON.stringify(obj); //сериализуем объект
+        console.log(serialObj);
+
+        localStorage.setItem('myObjKey', serialObj); // запишем в localStorage
+        console.log('----------> ',localStorage.getItem('myObjKey'));
+
+        // обратно сделаем объектом
+
+        let returnToObj = JSON.parse(localStorage['myObjKey'])
+        console.log(returnToObj)
+
+        localStorage.clear() // clear all
+
+        /*
+        
+        
+        */
+
+        try {
+            localStorage.setItem('ключ', 'значение');
+        } catch (e) {
+            if (e == QUOTA_EXCEEDED_ERR) {
+                alert('Превышен лимит');
+            }
+        }
+        
+        localStorage.clear()
+    </script>
+</body>

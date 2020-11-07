@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            margin: 20px;
+        }
+
+        .car {
+            width: 50px;
+            height: 50px;
+            background-color: #1f2;
+            position: relative;
+        }
+
+        /* перед и после */
+        .car::after {
+            content: 'after-element';
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 200px;
+            background-color: #564;
+        }
+
+        /* первый символ */
+        .first-par::first-letter {
+            font-size: xx-large;
+        }
+
+        /* выделенное пользователем */
+        .first-par::selection {
+            background-color: cornflowerblue;
+        }
+
+        /* первая строка */
+        .second::first-line {
+            background-color: #666;
+        }
+
+
+        /* плейсхолдер в инпуте или в textArea */
+        input::placeholder {
+            color: red;
+            font-size: 1.2em;
+            font-style: italic;
+            }
+    </style>
+</head>
+<body>
+    <div class="car"></div>
+
+    <p class="first-par">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod repudiandae tenetur voluptatem quos veritatis eos, quaerat vel doloremque neque aperiam omnis eaque quas officia. Iusto ad impedit optio illo iste?</p>
+    <pre class="second">
+        Lorem ipsum dolor sit 
+        amet consectetur adipisicing elit. Provident, 
+        commodi consequuntur! Deserunt, non! Natus quidem modi 
+        labore aperiam adipisci quae laboriosam! Delectus temporibus 
+        iste obcaecati accusamus laudantium dignissimos, nobis officiis.
+    </pre>
+
+    <input placeholder="Введите что-нибудь!">
+</body>
+</html>
