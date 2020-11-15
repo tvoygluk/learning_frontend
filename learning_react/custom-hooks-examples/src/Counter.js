@@ -1,16 +1,20 @@
-import React from 'react';
-import {useDocumentCount} from './useDocumentCount'
+import React, { useEffect } from 'react';
+import { useBackground } from './useBackground';
+import { useDocumentCount } from './useDocumentCount'
 
 export const Counter = () => {
 
-    const {count, plus, minus} = useDocumentCount();
+    useBackground();
+    
+    const {count, plus, minus} = useDocumentCount(1000);
 
+    const num = 7;
 
     return (
         <div>
             <p>{count}</p>
-            <button onClick={() => minus()}>- 1</button>
-            <button onClick={() => plus()}>+ 1</button>
+            <button onClick={() => minus(num)}>- {num}</button>
+            <button onClick={() => plus(num)}>+ {num}</button>
         </div>
     );
 }

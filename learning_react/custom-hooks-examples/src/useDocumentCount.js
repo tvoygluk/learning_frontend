@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 
 
-export const useDocumentCount = () => {
-    const [count, setCount] = useState(0);
+export const useDocumentCount = (initialCount) => {
+    const [count, setCount] = useState(initialCount);
 
     useEffect(() => {
         document.title=`Count ${count}`;
@@ -12,12 +12,12 @@ export const useDocumentCount = () => {
         }
     },[count])
 
-    const plus = () => {
-        setCount((prev) => prev + 1)
+    const plus = (num) => {
+        setCount((prev) => prev + num)
     }
 
-    const minus = () => {
-        setCount((prev) => prev - 1)
+    const minus = (num) => {
+        setCount((prev) => prev - num)
     }
 
     return {
